@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/peas_logo.png" alt="PEAS logo" width="320"/>
+  <img src="assets/peas_logo.png" alt="PEAS logo" width="480"/>
 </p>
 
 <h1 align="center">PEAS — Paraconsistent Explanation Audit System</h1>
