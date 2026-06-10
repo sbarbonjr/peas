@@ -35,7 +35,6 @@ all  = ["peas-xai[plot,dev]"]
 
 [project.urls]
 Homepage   = "https://github.com/sbarbonjr/peas"
-Paper      = "https://github.com/sbarbonjr/peas/blob/main/paper/xkdd2026/main.pdf"
 Issues     = "https://github.com/sbarbonjr/peas/issues"
 
 [tool.setuptools.packages.find]

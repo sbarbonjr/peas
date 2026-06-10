@@ -1,7 +1,7 @@
 # PEAS Evidence Profiles
 #
 # Each profile defines how raw evidence metrics are aggregated into mu (support)
-# and lambda (opposition). Profiles implement Formulation A from the XKDD 2026 paper:
+# and lambda (opposition). Profiles implement Formulation A from the PEAS paper:
 #
 #   mu (favorable)  = faithfulness metrics: F_deletion, F_insertion, C_topk
 #   lambda (contrary) = unreliability metrics: low_Stability, RandomSimilarity

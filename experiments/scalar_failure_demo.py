@@ -1,6 +1,6 @@
 """
-Demonstrates the scalar aggregation failure case from the XKDD 2026 paper
-(Table 3 — PEAS versus a single score).
+Demonstrates the scalar aggregation failure case described in the PEAS paper
+(PEAS versus a single score).
 
 Two configurations have identical single scores s = (1 + certainty) / 2,
 yet PEAS assigns different diagnostic states because it preserves the

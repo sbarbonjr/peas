@@ -1,4 +1,4 @@
-# Datasets used in the XKDD 2026 paper.
+# Datasets used in the PEAS benchmark.
 #
 # Seven real-world datasets (G1–G4) and seven synthetic datasets.
 # All real datasets are publicly available via sklearn or UCI.

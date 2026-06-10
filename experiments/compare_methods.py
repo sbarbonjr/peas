@@ -1,8 +1,8 @@
 """
 Multi-method PEAS comparison across datasets and models.
 
-Reproduces the method comparison table from the XKDD 2026 paper
-(Table 2 — PEAS results per method).
+Multi-method PEAS comparison reproducing the results from the PEAS paper
+(method comparison table — PEAS results per method).
 
 Usage
 -----
