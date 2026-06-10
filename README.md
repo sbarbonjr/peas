@@ -5,7 +5,6 @@
 <h1 align="center">PEAS — Paraconsistent Explanation Audit System</h1>
 
 <p align="center">
-  <a href="https://github.com/sbarbonjr/peas/blob/main/paper/xkdd2026/main.pdf"><img src="https://img.shields.io/badge/paper-XKDD%202026-blue"/></a>
   <a href="https://github.com/sbarbonjr/peas/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green"/></a>
   <img src="https://img.shields.io/badge/python-3.10%2B-blue"/>
   <img src="https://img.shields.io/badge/status-beta-orange"/>
