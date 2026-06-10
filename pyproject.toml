@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "peas-xai"
+version = "0.1.0"
+description = "Paraconsistent Explanation Audit System — audit XAI explanations using PAL2v logic"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Sergio Barbon Jr", email = "sbarbonjr@gmail.com" }]
+keywords = ["xai", "explainability", "audit", "paraconsistent", "faithfulness", "stability"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "scipy>=1.11",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+dev  = ["pytest>=7", "pytest-cov", "ruff", "mypy"]
+all  = ["peas-xai[plot,dev]"]
+
+[project.urls]
+Homepage   = "https://github.com/sbarbonjr/peas"
+Paper      = "https://github.com/sbarbonjr/peas/blob/main/paper/xkdd2026/main.pdf"
+Issues     = "https://github.com/sbarbonjr/peas/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["peas*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
