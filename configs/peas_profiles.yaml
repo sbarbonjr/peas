@@ -1,0 +1,61 @@
+# PEAS Evidence Profiles
+#
+# Each profile defines how raw evidence metrics are aggregated into mu (support)
+# and lambda (opposition). Profiles implement Formulation A from the XKDD 2026 paper:
+#
+#   mu (favorable)  = faithfulness metrics: F_deletion, F_insertion, C_topk
+#   lambda (contrary) = unreliability metrics: low_Stability, RandomSimilarity
+#
+# These two pools are causally independent — a method can be faithful but unstable
+# (high mu + high lambda = contradictory). BaselineGain is excluded from lambda
+# because it equals 1 - RandomSimilarity by construction and would re-introduce
+# algebraic dependence between mu and lambda.
+#
+# Diagnostic thresholds (theta): by default symmetric at 0.6.
+# Use AsymmetricThreshold or CalibratedThreshold in the API to override.
+
+diagnostic_thresholds:
+  high_mu: 0.6
+  high_lambda: 0.6
+
+peas_profiles:
+
+  # Paper default — equal weights across all evidence signals
+  core_equal:
+    support:
+      F_deletion: 0.333
+      F_insertion: 0.333
+      C_topk:      0.333
+    opposition:
+      low_Stability:    0.5
+      RandomSimilarity: 0.5
+
+  # Emphasise deletion/insertion fidelity over top-k overlap
+  faithfulness_oriented:
+    support:
+      F_deletion: 0.45
+      F_insertion: 0.45
+      C_topk:      0.10
+    opposition:
+      low_Stability:    0.5
+      RandomSimilarity: 0.5
+
+  # Opposition dominated by rank instability
+  stability_oriented:
+    support:
+      F_deletion: 0.333
+      F_insertion: 0.333
+      C_topk:      0.333
+    opposition:
+      low_Stability:    0.8
+      RandomSimilarity: 0.2
+
+  # Maximise detection of genuine contradictions (faithful-but-unstable)
+  contradiction_probe:
+    support:
+      F_deletion: 0.10
+      F_insertion: 0.20
+      C_topk:      0.70
+    opposition:
+      low_Stability:    0.3
+      RandomSimilarity: 0.7

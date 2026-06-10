@@ -1,0 +1,99 @@
+# Datasets used in the XKDD 2026 paper.
+#
+# Seven real-world datasets (G1–G4) and seven synthetic datasets.
+# All real datasets are publicly available via sklearn or UCI.
+
+datasets:
+
+  # ── Real-world ────────────────────────────────────────────────────────────
+
+  # G1 — small, low-dimensional (n < 200, p < 20)
+  iris:
+    kind: sklearn
+    loader: load_iris
+
+  wine:
+    kind: sklearn
+    loader: load_wine
+
+  # G2 — medium, binary classification
+  breast_cancer:
+    kind: sklearn
+    loader: load_breast_cancer
+
+  # G3 — medium, structured tabular
+  diabetes:
+    kind: sklearn
+    loader: load_diabetes_binary   # binarised version
+
+  # ── Synthetic ─────────────────────────────────────────────────────────────
+
+  sparse_synthetic:
+    kind: synthetic_classification
+    n_samples: 480
+    n_features: 16
+    n_informative: 5
+    n_redundant: 0
+    n_classes: 2
+    class_sep: 1.4
+    flip_y: 0.02
+
+  correlated_synthetic:
+    kind: correlated_redundant
+    n_samples: 480
+    n_features: 18
+    n_informative: 5
+    n_redundant: 8
+    n_classes: 2
+    class_sep: 0.9
+    flip_y: 0.06
+
+  xor_interaction:
+    kind: xor_interaction
+    n_samples: 480
+    n_features: 14
+    n_noise_features: 12
+    flip_y: 0.02
+
+  noisy_labels:
+    kind: noisy_labels
+    n_samples: 480
+    n_features: 16
+    n_informative: 5
+    n_redundant: 2
+    n_classes: 2
+    class_sep: 0.9
+    flip_y: 0.22
+
+  imbalanced_classes:
+    kind: imbalanced
+    n_samples: 520
+    n_features: 16
+    n_informative: 5
+    n_redundant: 2
+    n_classes: 2
+    class_sep: 1.0
+    flip_y: 0.03
+    weights: [0.88, 0.12]
+
+  leakage_spurious:
+    kind: leakage_spurious
+    n_samples: 480
+    n_features: 14
+    n_informative: 4
+    n_redundant: 2
+    n_classes: 2
+    class_sep: 0.8
+    flip_y: 0.04
+    leakage_noise: 0.02
+    spurious_strength: 0.75
+
+  high_dimensional_sparse:
+    kind: high_dimensional_sparse
+    n_samples: 520
+    n_features: 40
+    n_informative: 5
+    n_redundant: 0
+    n_classes: 2
+    class_sep: 1.2
+    flip_y: 0.04

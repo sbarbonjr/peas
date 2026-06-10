@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/peas_logo.png" alt="PEAS logo" width="180"/>
+  <img src="assets/peas_logo.png" alt="PEAS logo" width="320"/>
 </p>
 
 <h1 align="center">PEAS — Paraconsistent Explanation Audit System</h1>
@@ -33,21 +33,6 @@ A standard trust score $s = (\mu + 1 - \lambda)/2$ is an affine transform of the
 | Faithful + unstable | 0.91 | 0.49 | **0.71** | **Contradictory** |
 
 The two configurations have identical single scores, yet only PEAS flags the second one for inspection.
-
----
-
-## Key Results (XKDD 2026)
-
-Evaluated on **7 synthetic** and **7 real-world** tabular datasets, covering **9 XAI methods**, **2 validity controls**, and **3 model families** (4,405 unique configurations):
-
-- **Certainty gap of 0.73** between the best XAI method and the random baseline — clean separation throughout.
-- All 9 XAI methods are classified as **reliable** under Formulation A; both controls (*random ranking*, *low ranked*) are correctly **rejected**.
-- DPG is flagged as *reliable* but with notably higher $\lambda$ than attribution methods, reflecting sensitivity to ensemble variation — a signal invisible to single-score approaches.
-- Statistically significant separation (Friedman + Nemenyi, $\alpha=0.05$, CD=1.92) between additive-attribution methods and structural/graph-based methods.
-
-<p align="center">
-  <img src="assets/fig_diagnostic_plane.png" alt="PEAS results across methods" width="500"/>
-</p>
 
 ---
 
@@ -279,22 +264,6 @@ python experiments/compare_methods.py --run-dir artifacts/runs/full_v1 --latex
 | **Inconclusive** | $<\theta$ | $<\theta$ | Insufficient evidence — evaluation is underdetermined |
 
 The threshold $\theta=0.5$ is the conventional symmetric choice — the midpoint of $[0,1]$ at which neither evidence degree is considered dominant. It may be replaced by `AsymmetricThreshold` or `CalibratedThreshold` to suit specific evaluation contexts.
-
----
-
-## Citation
-
-If you use PEAS in your research, please cite:
-
-```bibtex
-@inproceedings{barbon2026peas,
-  title     = {{PEAS}: A Paraconsistent Framework for Auditing Conflicting Evidence in {XAI} Validation},
-  author    = {Barbon Jr, Sergio and others},
-  booktitle = {Proceedings of the XKDD Workshop, ECML PKDD 2026},
-  year      = {2026},
-  note      = {\url{https://github.com/sbarbonjr/peas}}
-}
-```
 
 ---
 

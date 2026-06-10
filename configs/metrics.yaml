@@ -1,0 +1,6 @@
+metrics:
+  top_k_values: [3, 5, 10]
+  perturbation:
+    numerical_strategy: median
+  baselines:
+    random_repetitions: 20

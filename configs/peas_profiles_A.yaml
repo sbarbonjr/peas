@@ -1,0 +1,55 @@
+diagnostic_thresholds:
+  high_mu: 0.6
+  high_lambda: 0.6
+
+# Formulation A: Asymmetric Evidence Sources
+# mu  (support)    = faithfulness metrics: F_deletion, F_insertion, C_topk
+# lambda (opposition) = unreliability metrics: low_Stability, RandomSimilarity
+# These two pools are causally independent — a method can be faithful but unstable
+# (high mu + high lambda = contradictory), which the original symmetric design could not detect.
+# BaselineGain is excluded: it equals 1 - RandomSimilarity by construction and would
+# re-introduce algebraic dependence between mu and lambda.
+
+peas_profiles:
+
+  core_equal:
+    # Equal weight across all faithfulness metrics; equal weight across unreliability metrics.
+    support:
+      F_deletion: 0.333
+      F_insertion: 0.333
+      C_topk:      0.333
+    opposition:
+      low_Stability:    0.5
+      RandomSimilarity: 0.5
+
+  faithfulness_oriented:
+    # Emphasise deletion/insertion fidelity over topk overlap.
+    support:
+      F_deletion: 0.45
+      F_insertion: 0.45
+      C_topk:      0.10
+    opposition:
+      low_Stability:    0.5
+      RandomSimilarity: 0.5
+
+  stability_oriented:
+    # Equal faithfulness weights; opposition dominated by instability.
+    support:
+      F_deletion: 0.333
+      F_insertion: 0.333
+      C_topk:      0.333
+    opposition:
+      low_Stability:    0.8
+      RandomSimilarity: 0.2
+
+  contradiction_probe:
+    # Maximise detection of genuine contradictions.
+    # Support focuses on topk overlap (can be high even for unstable methods).
+    # Opposition focuses on randomness similarity (independent of topk).
+    support:
+      F_deletion: 0.10
+      F_insertion: 0.20
+      C_topk:      0.70
+    opposition:
+      low_Stability:    0.3
+      RandomSimilarity: 0.7
