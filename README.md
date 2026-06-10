@@ -14,7 +14,7 @@
 
 > **Validating explanations produced by machine learning models is inherently multi-dimensional: faithfulness and stability often provide conflicting signals that scalar aggregation hides rather than resolves.**
 
-PEAS is an audit framework that maps XAI validation evidence into a [Paraconsistent Annotated Logic with two values (PAL2v)](https://doi.org/10.1007/3-540-15984-3_270) representation. Instead of collapsing conflicting signals into a single trust score, PEAS assigns each explanation to one of **four diagnostic states** — *reliable*, *contradictory*, *rejected*, or *inconclusive* — while preserving the contradiction as a meaningful signal.
+PEAS is an audit framework that maps XAI validation evidence into a [Paraconsistent Annotated Logic with two values (PAL2v)](https://doi.org/10.1007/3-540-15984-3_270) representation. PAL2v has been successfully applied to multi-source evidence reasoning in network anomaly detection and acoustic classification of co-occurring speech pathologies ([Pena et al., 2017](https://doi.org/10.1016/j.ins.2016.11.009)), making it a natural fit for XAI validation where faithfulness and stability may simultaneously support and oppose a reliability judgement. Instead of collapsing conflicting signals into a single trust score, PEAS assigns each explanation to one of **four diagnostic states** — *reliable*, *contradictory*, *rejected*, or *inconclusive* — while preserving the contradiction as a meaningful signal.
 
 <p align="center">
   <img src="assets/fig_framework_plane.png" alt="PEAS diagnostic plane" width="500"/>
@@ -276,5 +276,6 @@ MIT License. See [LICENSE](LICENSE).
 
 - [Quantus](https://github.com/understandingai/Quantus) — XAI evaluation toolkit (faithfulness metrics)
 - [PAL2v](https://doi.org/10.1007/3-540-15984-3_270) — Paraconsistent Annotated Logic foundation
+- [Pena et al. (2017)](https://doi.org/10.1016/j.ins.2016.11.009) — PAL2v applied to anomaly detection and multi-source evidence reasoning
 - [Hooker et al. (2019)](https://arxiv.org/abs/1806.10758) — ROAR benchmark for faithfulness
 - [Alvarez-Melis & Jaakkola (2018)](https://arxiv.org/abs/1806.07538) — Stability of explanations
