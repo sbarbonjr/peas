@@ -227,8 +227,6 @@ assets/
 ├── peas_logo.png
 ├── fig_framework_plane.png
 └── fig_diagnostic_plane.png
-
-paper/xkdd2026/              # XKDD 2026 camera-ready
 ```
 
 ---
